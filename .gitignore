@@ -1,0 +1,13 @@
+# バックアップ（高解像度の元画像・リポジトリ不要）
+assets/_orig/
+
+# OS / エディタ
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.__t
+*.__tmp.jpg
+
+# 作業用
+*.log

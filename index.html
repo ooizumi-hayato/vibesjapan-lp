@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<title>バイブスジャパン vol.8 ｜ 日本の若者よ、立ち上がれ。</title>
+<meta name="description" content="2027.2.13(土) なんばHatch。関西最大級・600名の学生 × 志ある企業 × 豪華ゲスト。就活・起業・インターン・仲間探し、すべての選択肢が動き出す1日。学生完全無料・完全事前予約制。">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="バイブスジャパン vol.8 ｜ 日本の若者よ、立ち上がれ。">
+<meta property="og:description" content="2027.2.13(土) なんばHatch。関西最大級・600名の学生が集う祭典。学生完全無料。">
+<meta property="og:site_name" content="VIBES JAPAN vol.8">
+<meta property="og:image" content="assets/ogp.jpg">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Yuji+Syuku&family=Zen+Kurenaido&family=Yusei+Magic&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@500;600;700&family=Zen+Old+Mincho:wght@600;700;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ 固定ヘッダー ============ -->
+<!-- 赤シグナル背景アニメ（全体） -->
+<div class="fx-signals" aria-hidden="true">
+  <span class="fx-beam"></span>
+  <span class="fx-beam"></span>
+  <span class="fx-beam"></span>
+  <span class="fx-beam"></span>
+  <span class="fx-beam"></span>
+  <span class="fx-beam"></span>
+</div>
+
+<header class="hdr" id="hdr">
+  <div class="hdr__ticker">
+    <div class="hdr__ticker-inner">
+      <span class="hdr__dot"></span>
+      <span class="hdr__ticker-text">【残席わずか】定員600名／完売にて募集終了</span>
+    </div>
+  </div>
+  <div class="hdr__bar">
+    <a class="hdr__logo" href="#hero" data-logo-wrap>
+      <img class="logo-img" src="assets/logo.png" alt="VIBES JAPAN vol.8" data-logo>
+      <span class="logo-text">VIBES <b>JAPAN</b> <span>vol.8</span></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="メインナビ">
+      <a href="#intro">ABOUT</a>
+      <a href="#contents">CONTENTS</a>
+      <a href="#speakers">SPEAKERS</a>
+      <a href="#past-speakers">PAST</a>
+      <a href="#timetable">TIMETABLE</a>
+      <a href="#sponsor">SPONSOR</a>
+      <a href="#voice">VOICE</a>
+      <a href="#faq">FAQ</a>
+      <a href="#outline">OUTLINE</a>
+      <a href="#entry" class="nav__entry">ENTRY 申込</a>
+    </nav>
+    <a href="#entry" class="hdr__cta">ENTRY</a>
+    <button class="hdr__burger" id="burger" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="nav-scrim" id="navScrim" hidden></div>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero__bg" aria-hidden="true">
+    <figure class="photo photo--hero" data-photo>
+      <img src="assets/fv-bg.jpg" alt="">
+      <span class="photo__ph"><span class="photo__ico">🖼️</span>FVメイン写真<code>assets/fv-bg.jpg</code><small>なんばHatchのステージ・熱狂する若者など（横長・2000px推奨）</small></span>
+    </figure>
+    <div class="hero__scrim"></div>
+    <div class="hero__glow"></div>
+    <div class="hero__noise"></div>
+  </div>
+
+  <div class="hero__inner">
+    <p class="hero__eyebrow">日本の若者が集う、1日限りのキャリアフェス</p>
+    <h1 class="hero__logo" data-logo-wrap>
+      <img class="hero__logo-img logo-img" src="assets/logo.png" alt="バイブスジャパン" data-logo>
+      <span class="logo-text">VIBES JAPAN</span>
+    </h1>
+    <p class="hero__vol">VOL.8 — OSAKA</p>
+    <div class="hero__catch">
+      <p class="hero__catch-jp">自分の未来に、<span class="ember">もっと欲張れ。</span></p>
+      <p class="hero__catch-en">DON'T THINK, JUST DO.</p>
+    </div>
+    <div class="hero__facts">
+      <p class="hero__date"><b>2027.02.13</b><span>SAT</span><i>13:00 – 19:00</i></p>
+      <p class="hero__venue">なんばHatch（大阪・難波）</p>
+    </div>
+    <div class="hero__pills">
+      <span class="hero__pill"><b>学生</b>無料</span>
+      <span class="hero__pill"><b>定員</b>600名限定</span>
+    </div>
+    <a href="#entry" class="btn btn--primary hero__btn">無料参加枠を確保する</a>
+    <p class="hero__scroll">SCROLL</p>
+  </div>
+
+  <div class="hero__guests" aria-label="登壇者">
+    <div class="hero__guests-track">
+      <!-- 今回の登壇者 -->
+      <div class="hero__guest hero__guest--now"><figure class="photo"><img src="assets/guest-1.jpg" alt="大倉 忠司"></figure><b>大倉 忠司</b><small>特別ゲスト</small></div>
+      <div class="hero__guest hero__guest--now"><figure class="photo"><img src="assets/guest-2.jpg" alt="北口 拓実"></figure><b>北口 拓実</b><small>特別ゲスト</small></div>
+      <div class="hero__guest hero__guest--now"><figure class="photo"><img src="assets/pitch-1.jpg" alt="大阪の棒人間鈴木"></figure><b>大阪の棒人間鈴木</b><small>登壇者</small></div>
+      <div class="hero__guest hero__guest--now"><figure class="photo"><img src="assets/pitch-2.jpg" alt="Shin Okamura"></figure><b>Shin Okamura</b><small>登壇者</small></div>
+      <div class="hero__guest hero__guest--now"><figure class="photo"><img src="assets/sub-1.jpg" alt="ウンパルンパ"></figure><b>ウンパルンパ</b><small>サブコメンテーター</small></div>
+      <!-- 過去の登壇者（Vol.5） -->
+      <div class="hero__guest hero__guest--past"><figure class="photo"><img src="assets/past-5-live.jpg" alt="鈴木鈴木"></figure><b>鈴木鈴木</b><small>Vol.5 ライブ</small></div>
+      <div class="hero__guest hero__guest--past"><figure class="photo"><img src="assets/past-5-mc.jpg" alt="大倉 士門"></figure><b>大倉 士門</b><small>Vol.5 MC</small></div>
+      <div class="hero__guest hero__guest--past"><figure class="photo"><img src="assets/past-5-1.jpg" alt="今中 康仁"></figure><b>今中 康仁</b><small>Vol.5 特別講演</small></div>
+      <div class="hero__guest hero__guest--past"><figure class="photo"><img src="assets/past-5-2.jpg" alt="糸井 嘉男"></figure><b>糸井 嘉男</b><small>Vol.5 特別講演</small></div>
+      <div class="hero__guest hero__guest--past"><figure class="photo"><img src="assets/past-5-3.jpg" alt="米田 静玖"></figure><b>米田 静玖</b><small>Vol.5 登壇</small></div>
+      <div class="hero__guest hero__guest--past"><figure class="photo"><img src="assets/past-5-4.jpg" alt="米田 賢祐"></figure><b>米田 賢祐</b><small>Vol.5 登壇</small></div>
+      <div class="hero__guest hero__guest--past"><figure class="photo"><img src="assets/past-5-5.jpg" alt="合田 瞳"></figure><b>合田 瞳</b><small>Vol.5 登壇</small></div>
+      <div class="hero__guest hero__guest--past"><figure class="photo"><img src="assets/past-5-6.jpg" alt="ゆーてん"></figure><b>ゆーてん</b><small>Vol.5 登壇</small></div>
+      <div class="hero__guest hero__guest--past"><figure class="photo"><img src="assets/past-5-7.jpg" alt="前原 剛"></figure><b>前原 剛</b><small>Vol.5 登壇</small></div>
+      <!-- ループ用の複製 -->
+      <div class="hero__guest hero__guest--now" aria-hidden="true"><figure class="photo"><img src="assets/guest-1.jpg" alt=""></figure><b>大倉 忠司</b><small>特別ゲスト</small></div>
+      <div class="hero__guest hero__guest--now" aria-hidden="true"><figure class="photo"><img src="assets/guest-2.jpg" alt=""></figure><b>北口 拓実</b><small>特別ゲスト</small></div>
+      <div class="hero__guest hero__guest--now" aria-hidden="true"><figure class="photo"><img src="assets/pitch-1.jpg" alt=""></figure><b>大阪の棒人間鈴木</b><small>登壇者</small></div>
+      <div class="hero__guest hero__guest--now" aria-hidden="true"><figure class="photo"><img src="assets/pitch-2.jpg" alt=""></figure><b>Shin Okamura</b><small>登壇者</small></div>
+      <div class="hero__guest hero__guest--now" aria-hidden="true"><figure class="photo"><img src="assets/sub-1.jpg" alt=""></figure><b>ウンパルンパ</b><small>サブコメンテーター</small></div>
+      <div class="hero__guest hero__guest--past" aria-hidden="true"><figure class="photo"><img src="assets/past-5-live.jpg" alt=""></figure><b>鈴木鈴木</b><small>Vol.5 ライブ</small></div>
+      <div class="hero__guest hero__guest--past" aria-hidden="true"><figure class="photo"><img src="assets/past-5-mc.jpg" alt=""></figure><b>大倉 士門</b><small>Vol.5 MC</small></div>
+      <div class="hero__guest hero__guest--past" aria-hidden="true"><figure class="photo"><img src="assets/past-5-1.jpg" alt=""></figure><b>今中 康仁</b><small>Vol.5 特別講演</small></div>
+      <div class="hero__guest hero__guest--past" aria-hidden="true"><figure class="photo"><img src="assets/past-5-2.jpg" alt=""></figure><b>糸井 嘉男</b><small>Vol.5 特別講演</small></div>
+      <div class="hero__guest hero__guest--past" aria-hidden="true"><figure class="photo"><img src="assets/past-5-3.jpg" alt=""></figure><b>米田 静玖</b><small>Vol.5 登壇</small></div>
+      <div class="hero__guest hero__guest--past" aria-hidden="true"><figure class="photo"><img src="assets/past-5-4.jpg" alt=""></figure><b>米田 賢祐</b><small>Vol.5 登壇</small></div>
+      <div class="hero__guest hero__guest--past" aria-hidden="true"><figure class="photo"><img src="assets/past-5-5.jpg" alt=""></figure><b>合田 瞳</b><small>Vol.5 登壇</small></div>
+      <div class="hero__guest hero__guest--past" aria-hidden="true"><figure class="photo"><img src="assets/past-5-6.jpg" alt=""></figure><b>ゆーてん</b><small>Vol.5 登壇</small></div>
+      <div class="hero__guest hero__guest--past" aria-hidden="true"><figure class="photo"><img src="assets/past-5-7.jpg" alt=""></figure><b>前原 剛</b><small>Vol.5 登壇</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MOVIE ============ -->
+<section class="section movie" id="movie">
+  <div class="wrap sec-head">
+    <p class="kicker">MOVIE</p>
+    <h2 class="sec-title">会場の熱量を、30秒で。</h2>
+    <p class="sec-lead">過去ダイジェスト映像　バイブスジャパン Vol.5</p>
+  </div>
+  <div class="wrap">
+    <div class="movie__frame" data-video>
+      <video class="movie__video" preload="none" playsinline poster="assets/digest-poster.jpg">
+        <source src="assets/digest.mp4" type="video/mp4">
+      </video>
+      <button type="button" class="movie__play" aria-label="ダイジェスト映像を再生"><span class="movie__play-ico"></span></button>
+      <span class="movie__ph"><span class="photo__ico">🎬</span>ダイジェスト映像<code>assets/digest.mp4</code></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUICK ENTRY（FV直下フォーム） ============ -->
+<section class="section quick" id="quick">
+  <div class="wrap wrap--narrow">
+    <div class="seat-meter" data-total="600" data-taken="552">
+      <div class="seat-meter__head">
+        <span class="seat-meter__label">リアルタイム残席</span>
+        <span class="seat-meter__count"><b id="seatRemainQuick">48</b> / 600席</span>
+      </div>
+      <div class="seat-meter__bar"><span class="seat-meter__fill" style="--pct:92%"></span></div>
+      <p class="seat-meter__note">席数限定・完売になり次第、事前告知なく募集を即時終了します。</p>
+    </div>
+    <h2 class="quick__title"><span class="quick__badge">簡単30秒</span>今すぐ無料参加枠を確保する</h2>
+    <form class="entry-form entry-form--quick" data-form="quick" novalidate>
+      <div class="entry-form__grid">
+        <div class="field"><label>氏名 <span class="req">必須</span></label><input type="text" name="name" autocomplete="name" placeholder="山田 太郎" required><p class="err"></p></div>
+        <div class="field"><label>フリガナ <span class="req">必須</span></label><input type="text" name="kana" placeholder="ヤマダ タロウ" required><p class="err"></p></div>
+        <div class="field field--full"><label>大学・学校名 <span class="req">必須</span></label><input type="text" name="university" placeholder="◯◯大学" required><p class="err"></p></div>
+        <div class="field"><label>学部 <span class="req">必須</span></label><input type="text" name="faculty" placeholder="経済学部" required><p class="err"></p></div>
+        <div class="field"><label>学科 <span class="req">必須</span></label><input type="text" name="department" placeholder="経済学科" required><p class="err"></p></div>
+        <div class="field"><label>学年 <span class="req">必須</span></label><select name="grade" required><option value="" disabled selected>選択してください</option><option>学部1年</option><option>学部2年</option><option>学部3年</option><option>学部4年</option><option>修士1年</option><option>修士2年</option><option>博士課程</option><option>高校生</option><option>専門学校生</option><option>その他</option></select><p class="err"></p></div>
+        <div class="field"><label>メールアドレス <span class="req">必須</span></label><input type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required><p class="err"></p></div>
+        <div class="field field--full"><label>電話番号 <span class="req">必須</span></label><input type="tel" name="tel" autocomplete="tel" inputmode="tel" placeholder="09012345678" required><p class="err"></p></div>
+      </div>
+      <fieldset class="field field--check">
+        <legend>参加目的 <span class="req req--soft">複数選択可</span></legend>
+        <label class="check"><input type="checkbox" name="purpose" value="就活・選考直結インターン探し"><span>就活・選考直結インターン探し</span></label>
+        <label class="check"><input type="checkbox" name="purpose" value="起業・ビジネスパートナー探し"><span>起業・ビジネスパートナー探し</span></label>
+        <label class="check"><input type="checkbox" name="purpose" value="熱量のある仲間・同世代との出会い"><span>熱量のある仲間・同世代との出会い</span></label>
+        <label class="check"><input type="checkbox" name="purpose" value="豪華ライブ・特別講演の体感"><span>豪華ライブ・特別講演の体感</span></label>
+      </fieldset>
+      <button type="submit" class="btn btn--primary btn--block btn--submit"><span>無料で参加チケットをGETする</span></button>
+      <p class="entry-form__privacy">送信をもって<a href="#faq">利用規約・プライバシーポリシー</a>に同意したものとみなします。</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ INTRODUCTION ============ -->
+<section class="section intro" id="intro">
+  <div class="wrap sec-head">
+    <p class="kicker">INTRODUCTION</p>
+    <div class="handwrite" data-fade><span class="hw-a">日々の行動や考え方に主体性をもって</span><span class="hw-b">動けていると自信をもって言えますか？</span></div>
+  </div>
+  <div class="wrap wrap--mid">
+    <div class="intro__msg">
+      <p>周りを見渡し、空気を読む。<br>誰かが敷いた軌道の上で、自分の楽しき人生は味わえない。</p>
+      <p>主体性をもって動くとは、自分の人生のハンドルを握る事。自分の言葉で語り、踏み出した瞬間にしか見えない景色があり、手に入らない熱狂がある。</p>
+      <p>周りの目を恐れて同調するな。自分の足で立ち、自分の意志で動かせ。<br><strong>その魂と主体性が、日本を、君自身を突き動かす。</strong></p>
+    </div>
+    <p class="intro__cry">「やるか、やらんか。」</p>
+  </div>
+</section>
+
+<!-- ============ CONTENTS ============ -->
+<section class="section contents" id="contents">
+  <div class="wrap sec-head">
+    <p class="kicker">CONTENTS</p>
+    <h2 class="sec-title">当日のコンテンツ</h2>
+  </div>
+  <div class="wrap">
+    <div class="progs">
+
+      <article class="prog">
+        <figure class="photo photo--prog" data-photo><img src="assets/program-pitch.jpg" alt="バイブスバトルピッチ"><span class="photo__ph"><span class="photo__ico">🖼️</span><code>program-pitch.jpg</code></span></figure>
+        <div class="prog__body">
+          <p class="prog__time">13:20 – 13:45</p>
+          <h3 class="prog__title">バイブスバトルピッチ</h3>
+          <p class="prog__hook">「自分にはまだ何もない」——そう思う君へ。</p>
+          <p class="prog__desc">選ばれしZ世代プレゼンター4名が、自身のビジョンと生き方を賭けて5分間の魂のピッチ。観客全員の投票で優勝者（<b>賞金10万円</b>）が決定。同世代の圧倒的な熱量と覚悟を、目の前で目撃せよ。</p>
+        </div>
+      </article>
+
+      <article class="prog">
+        <figure class="photo photo--prog" data-photo><img src="assets/program-matching.jpg" alt="バイブスリアルマッチング"><span class="photo__ph"><span class="photo__ico">🖼️</span><code>program-matching.jpg</code></span></figure>
+        <div class="prog__body">
+          <p class="prog__time">14:00 – 14:58</p>
+          <h3 class="prog__title">バイブスリアルマッチング</h3>
+          <p class="prog__hook">情熱で選ぶな。「思い」と「熱量」で出会え。</p>
+          <p class="prog__desc">企業からあなたが選ばれる、新感覚キャリアコンテンツ。企業の「思い」「会社にかける情熱」に刺激を受け、その企業へ交流会で突撃。自身のバイブスを伝え、表彰式の学生ドラフトにて、選考優遇権を勝ち取れ。</p>
+        </div>
+      </article>
+
+      <article class="prog">
+        <figure class="photo photo--prog" data-photo><img src="assets/program-live.jpg" alt="スペシャルゲスト講演"><span class="photo__ph"><span class="photo__ico">🖼️</span><code>program-live.jpg</code></span></figure>
+        <div class="prog__body">
+          <p class="prog__time">17:00 – 17:30</p>
+          <h3 class="prog__title">スペシャルゲスト講演</h3>
+          <p class="prog__hook">第一線の生き様が、君の視野を大きく広げる。</p>
+          <p class="prog__desc">各界の第一線で活躍するトップランナーが登壇。その言葉と生き様が、あなたの視野と可能性を一気に押し広げる。（登壇者は順次解禁）</p>
+        </div>
+      </article>
+
+      <article class="prog">
+        <figure class="photo photo--prog" data-photo><img src="assets/artist-live.jpg" alt="アーティストライブ"><span class="photo__ph"><span class="photo__ico">🖼️</span><code>artist-live.jpg</code></span></figure>
+        <div class="prog__body">
+          <p class="prog__time">18:17 – 19:00</p>
+          <h3 class="prog__title">アーティストライブ</h3>
+          <p class="prog__hook">熱狂のフィナーレ。会場の熱量を、最高潮へ。</p>
+          <p class="prog__desc">イベントのフィナーレ。会場の熱量を上げきり、閉幕。（出演は順次解禁）</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ SPEAKERS ============ -->
+<section class="section speakers" id="speakers">
+  <div class="wrap sec-head">
+    <p class="kicker">SPEAKERS</p>
+    <h2 class="sec-title">登壇者・主催者</h2>
+    <p class="sec-lead">特別ゲスト・出演アーティストは順次解禁。</p>
+  </div>
+  <div class="wrap">
+    <div class="speakers__grid">
+      <article class="speaker speaker--main">
+        <figure class="photo photo--portrait" data-photo><img src="assets/organizer.jpg" alt="西 奈槻 氏"><span class="photo__ph"><span class="photo__ico">📷</span><code>organizer.jpg</code></span></figure>
+        <div class="speaker__body">
+          <span class="speaker__role">主催・代表</span>
+          <h3 class="speaker__name">西 奈槻</h3>
+          <p class="speaker__org">株式会社やるかやらんか 代表取締役CEO</p>
+          <p class="speaker__desc">近畿大学在学中に起業し、麻婆豆腐ラーメン専門店「すするか、すすらんか。」を創業。現在は奈良・大阪で2店舗を運営する。<br><br>関西圏の大学生とのネットワークを強みに、学生向けキャリアイベント「バイブスジャパン」や、企業と学生を“麺”でつなぐ「バイブス麺談」、長期インターン支援「バイブスインターン」を展開。<br><br>また、大学・高校・学習塾などの教育機関を中心にSNS・広報支援も手がける。「日本の若者に“選択肢”を示す。」を掲げ、若者の挑戦機会を生み出している。</p>
+        </div>
+      </article>
+
+      <p class="speakers__group">特別ゲスト・出演アーティスト</p>
+      <article class="speaker">
+        <figure class="photo photo--portrait photo--guest" data-photo><img src="assets/guest-1.jpg" alt="大倉 忠司 氏" style="object-position:center top"><span class="photo__ph"><span class="photo__ico">?</span></span></figure>
+        <div class="speaker__body"><span class="speaker__role">特別ゲスト</span><h3 class="speaker__name">大倉 忠司</h3><p class="speaker__org">株式会社エターナルホスピタリティグループ 代表取締役社長CEO</p><p class="speaker__desc">1960年、大阪府生まれ。辻調理師専門学校卒業後、ホテルや焼鳥店勤務を経て1985年に独立し、<b class="mark">「鳥貴族」</b>1号店を開店。全品均一価格の低価格路線で事業を拡大し、東証プライム上場企業へと育て上げた。長男はアイドルグループ「SUPER EIGHT」の大倉忠義。</p></div>
+      </article>
+      <article class="speaker">
+        <figure class="photo photo--portrait photo--guest" data-photo><img src="assets/guest-2.jpg" alt="北口 拓実 氏" style="object-position:center top"><span class="photo__ph"><span class="photo__ico">?</span></span></figure>
+        <div class="speaker__body"><span class="speaker__role">特別ゲスト</span><h3 class="speaker__name">北口 拓実</h3><p class="speaker__org">株式会社Grand Central 代表取締役CEO</p><p class="speaker__desc">1995年、大阪府生まれ。立命館大学卒業後、株式会社キーエンスに入社し、法人向け営業で史上最年少の売上記録を更新。2021年に株式会社Grand Centralを創業し、営業戦略の立案から実行までを担う「セールスコンサルティング事業」を展開。Forbes JAPAN「30 UNDER 30」にも選出された。</p></div>
+      </article>
+      <article class="speaker speaker--coming">
+        <figure class="photo photo--portrait photo--guest" data-photo><img src="assets/guest-3.jpg" alt=""><span class="photo__ph"><span class="photo__ico">?</span></span></figure>
+        <div class="speaker__body"><span class="speaker__role speaker__role--soon">Coming Soon</span><h3 class="speaker__name">出演アーティスト</h3><p class="speaker__org">順次解禁</p><p class="speaker__desc speaker__desc--ph">プロフィールは後日掲載</p></div>
+      </article>
+
+      <p class="speakers__group">バイブスバトルピッチ 登壇者</p>
+      <article class="speaker">
+        <figure class="photo photo--portrait photo--guest" data-photo><img src="assets/pitch-1.jpg" alt="大阪の棒人間鈴木" style="object-position:center top"><span class="photo__ph"><span class="photo__ico">?</span></span></figure>
+        <div class="speaker__body"><span class="speaker__role">登壇者</span><h3 class="speaker__name">大阪の棒人間鈴木</h3><p class="speaker__org">SNSクリエイター</p><p class="speaker__desc">2000年、愛知県生まれ（本名：鈴木琢磨）。大阪のホテルマンを経てショート動画制作を開始。「日本一リアルな恋愛ドラマ」をコンセプトに、TikTokなどでリアルなシチュエーションや高い演技力を生かした動画を展開。『多分こんな感じドラマ』のプロデュースも手がけるなど、SNS領域を中心に精力的に活動中。</p></div>
+      </article>
+      <article class="speaker">
+        <figure class="photo photo--portrait photo--guest" data-photo><img src="assets/pitch-2.jpg" alt="Shin Okamura"><span class="photo__ph"><span class="photo__ico">?</span></span></figure>
+        <div class="speaker__body"><span class="speaker__role">登壇者</span><h3 class="speaker__name">Shin Okamura</h3><p class="speaker__org">パーソナルトレーナー ／ SBT1級メンタルコーチ</p><p class="speaker__desc">岡村伸之佑。パーソナルジム「MY BODY LABO」トレーナー。SNSでボディメイク・ダイエット向けの情報を発信し、YouTubeの人気ダイエット企画『シンデレラは努力する』などで多くの劇的なビフォーアフターを担当。メンタルコーチングの知見を生かし、外見だけでなくメンタル面からも受講者を支える指導法で人気を集めている。</p></div>
+      </article>
+      <article class="speaker">
+        <figure class="photo photo--portrait photo--guest" data-photo><img src="assets/pitch-3.jpg" alt="横山 淳一" style="object-position:center top"><span class="photo__ph"><span class="photo__ico">?</span></span></figure>
+        <div class="speaker__body"><span class="speaker__role">登壇者</span><h3 class="speaker__name">横山 淳一</h3><p class="speaker__org">株式会社YOKOYAMA 代表取締役CEO</p><p class="speaker__desc">大学在学中の2021年に営業代行事業を立ち上げ、翌年に株式会社YOKOYAMAを設立。単身で約1,200店舗を開拓するも挫折を経験し、食品事業へ転換。実家で豚骨を炊く試作から「二郎系」万能スープ『TONGARI』を開発し、大手コンビニ・卸との商流を構築。累計約1万店舗・出荷10万本を突破した若手起業家。</p></div>
+      </article>
+
+      <p class="speakers__group">MC・サブコメンテーター</p>
+      <article class="speaker speaker--coming">
+        <figure class="photo photo--portrait photo--guest" data-photo><img src="assets/mc-1.jpg" alt=""><span class="photo__ph"><span class="photo__ico">?</span></span></figure>
+        <div class="speaker__body"><span class="speaker__role speaker__role--soon">Coming Soon</span><h3 class="speaker__name">MC</h3><p class="speaker__org">順次解禁</p><p class="speaker__desc speaker__desc--ph">プロフィールは後日掲載</p></div>
+      </article>
+      <article class="speaker">
+        <figure class="photo photo--portrait photo--guest" data-photo><img src="assets/sub-1.jpg" alt="ウンパルンパ" style="object-position:center top"><span class="photo__ph"><span class="photo__ico">?</span></span></figure>
+        <div class="speaker__body"><span class="speaker__role">サブコメンテーター</span><h3 class="speaker__name">ウンパルンパ</h3><p class="speaker__org">インフルエンサー ／ 動画クリエイター</p><p class="speaker__desc">1999年、愛知県生まれ（本名：村井亮介）。サッカー強豪・中京大中京高校および中京大学出身。大学在学中にTikTokを開設し、「学校の先生」や「部活の顧問」のリアルすぎるあるあるネタでブレイク。親しみやすいキャラクターと高い再現力で人気を集め、サッカー界の著名人とのコラボや、YouTubeインフルエンサーサッカーチーム「WINNER'S」のメンバーとしても精力的に活動している。</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIMETABLE ============ -->
+<section class="section timetable" id="timetable">
+  <div class="wrap sec-head">
+    <p class="kicker">TIMETABLE</p>
+    <h2 class="sec-title">タイムテーブル</h2>
+    <p class="sec-lead">MAIN STAGE ／ 2027.2.13(土) ※内容・時間は変更になる場合があります（現在は仮スケジュール）</p>
+  </div>
+  <div class="wrap wrap--mid">
+    <ol class="tt">
+      <li class="tt__row"><span class="tt__time">13:00</span><div class="tt__body"><b>開演</b></div></li>
+      <li class="tt__row"><span class="tt__time">13:00</span><div class="tt__body"><b>オープニング</b><p>主催会社 株式会社やるかやらんか 代表取締役 西 奈槻より開会宣言。</p></div></li>
+      <li class="tt__row tt__row--hot"><span class="tt__time">13:20</span><div class="tt__body"><b>バイブスバトルピッチ</b><p>4名のZ世代登壇者によるバイブスピッチ。</p></div></li>
+      <li class="tt__row"><span class="tt__time">13:45</span><div class="tt__body"><b>休憩</b></div></li>
+      <li class="tt__row tt__row--hot"><span class="tt__time">14:00</span><div class="tt__body"><b>バイブスリアルマッチング</b><p>スポンサー企業によるピッチ。観客の皆さんをスカウトしにお越しいただきます。</p></div></li>
+      <li class="tt__row"><span class="tt__time">14:58</span><div class="tt__body"><b>休憩</b></div></li>
+      <li class="tt__row"><span class="tt__time">15:20</span><div class="tt__body"><b>交流会</b><p>登壇者・企業・仲間とつながる時間。</p></div></li>
+      <li class="tt__row"><span class="tt__time">16:50</span><div class="tt__body"><b>休憩</b></div></li>
+      <li class="tt__row tt__row--box"><span class="tt__time">17:00</span><div class="tt__body"><b>特別講演</b><p>第一線のトップランナーが登壇（順次解禁）。</p></div></li>
+      <li class="tt__row tt__row--box"><span class="tt__time">17:30</span><div class="tt__body"><b>表彰式</b><p>この日の主役たちを表彰。企業様による学生指名ドラフトセレモニー。スカウトをここで勝ち取れ。</p></div></li>
+      <li class="tt__row"><span class="tt__time">18:10</span><div class="tt__body"><b>クロージング</b><p>株式会社やるかやらんか 西 奈槻 より閉幕宣言。</p></div></li>
+      <li class="tt__row tt__row--hot"><span class="tt__time">18:17</span><div class="tt__body"><b>アーティストライブ</b><p>有名アーティストによる熱狂のライブ（順次解禁）。</p></div></li>
+      <li class="tt__row"><span class="tt__time">19:00</span><div class="tt__body"><b>閉幕</b><p>そのバイブスで明日を生きる。</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ PAST SPEAKERS ============ -->
+<section class="section pspk" id="past-speakers">
+  <div class="wrap sec-head">
+    <p class="kicker">PAST SPEAKERS</p>
+    <h2 class="sec-title">過去の登壇者</h2>
+    <p class="sec-lead">バイブスジャパンに登壇した、各界のトップランナーたち。</p>
+  </div>
+  <div class="wrap">
+    <div class="pspk__tabs" role="tablist">
+      <button type="button" class="pstab is-active" data-pstab="5" role="tab" aria-selected="true">Vol.5</button>
+      <button type="button" class="pstab" data-pstab="6" role="tab" aria-selected="false">Vol.6</button>
+      <button type="button" class="pstab" data-pstab="7" role="tab" aria-selected="false">Vol.7</button>
+    </div>
+
+    <div class="pspk__panel" data-pspanel="7">
+      <p class="pspk__note"><span class="pspk__note-tag">特別講演</span> は他の登壇者とは別枠での登壇です。</p>
+      <div class="pspk__grid">
+        <article class="pcard pcard--special"><figure class="photo photo--portrait photo--guest" data-photo><img src="assets/past-7-1.jpg" alt="岡 春翔"><span class="photo__ph"><span class="photo__ico">?</span><code>past-7-1.jpg</code></span></figure><div class="pcard__body"><span class="pcard__tag">特別講演</span><h3 class="pcard__name">岡 春翔</h3><p class="pcard__org">株式会社HA-LU 代表取締役CEO</p></div></article>
+        <article class="pcard"><figure class="photo photo--portrait photo--guest" data-photo><img src="assets/past-7-2.jpg" alt="岩本 佳穏"><span class="photo__ph"><span class="photo__ico">?</span><code>past-7-2.jpg</code></span></figure><div class="pcard__body"><h3 class="pcard__name">岩本 佳穏</h3><p class="pcard__org">株式会社Social Growth 代表</p></div></article>
+        <article class="pcard"><figure class="photo photo--portrait photo--guest" data-photo><img src="assets/past-7-3.jpg" alt="秋本 凌吾"><span class="photo__ph"><span class="photo__ico">?</span><code>past-7-3.jpg</code></span></figure><div class="pcard__body"><h3 class="pcard__name">秋本 凌吾</h3><p class="pcard__org">株式会社One Rep 代表取締役</p></div></article>
+        <article class="pcard"><figure class="photo photo--portrait photo--guest" data-photo><img src="assets/past-7-4.jpg" alt="立崎 乃衣"><span class="photo__ph"><span class="photo__ico">?</span><code>past-7-4.jpg</code></span></figure><div class="pcard__body"><h3 class="pcard__name">立崎 乃衣</h3><p class="pcard__org">株式会社LINOA 代表取締役社長CEO</p></div></article>
+        <article class="pcard"><figure class="photo photo--portrait photo--guest" data-photo><img src="assets/past-7-5.jpg" alt="高野 亮太"><span class="photo__ph"><span class="photo__ico">?</span><code>past-7-5.jpg</code></span></figure><div class="pcard__body"><h3 class="pcard__name">高野 亮太</h3><p class="pcard__org">リョータのイケメン製作所 インフルエンサー</p></div></article>
+        <article class="pcard"><figure class="photo photo--portrait photo--guest" data-photo><img src="assets/past-7-6.jpg" alt="細井 菜月"><span class="photo__ph"><span class="photo__ico">?</span><code>past-7-6.jpg</code></span></figure><div class="pcard__body"><h3 class="pcard__name">細井 菜月</h3><p class="pcard__org">多分こんな感じドラマ メインキャスト</p></div></article>
+        <article class="pcard"><figure class="photo photo--portrait photo--guest" data-photo><img src="assets/past-7-7.jpg" alt="野嶋 紗己子"><span class="photo__ph"><span class="photo__ico">?</span><code>past-7-7.jpg</code></span></figure><div class="pcard__body"><h3 class="pcard__name">野嶋 紗己子</h3><p class="pcard__org">PIVOT MC・プロデューサー</p></div></article>
+        <article class="pcard"><figure class="photo photo--portrait photo--guest" data-photo><img src="assets/past-7-8.jpg" alt="マキヒカ"><span class="photo__ph"><span class="photo__ico">?</span><code>past-7-8.jpg</code></span></figure><div class="pcard__body"><h3 class="pcard__name">マキヒカ</h3><p class="pcard__org">インフルエンサー</p></div></article>
+      </div>
+      <div class="pspk__sponsors">
+        <h3 class="sponsor__sub">Vol.7 の協賛企業</h3>
+        <div class="logos">
+          <figure class="photo photo--logo photo--logo-white" data-photo><img src="assets/past-sponsor-7-1.png" alt=""><span class="photo__ph"><code>past-sponsor-7-1</code></span></figure>
+          <figure class="photo photo--logo photo--logo-white" data-photo><img src="assets/past-sponsor-7-2.png" alt=""><span class="photo__ph"><code>past-sponsor-7-2</code></span></figure>
+          <figure class="photo photo--logo photo--logo-white" data-photo><img src="assets/past-sponsor-7-3.png" alt=""><span class="photo__ph"><code>past-sponsor-7-3</code></span></figure>
+          <figure class="photo photo--logo photo--logo-white" data-photo><img src="assets/past-sponsor-7-4.png" alt=""><span class="photo__ph"><code>past-sponsor-7-4</code></span></figure>
+          <figure class="photo photo--logo photo--logo-white" data-photo><img src="assets/past-sponsor-7-5.png" alt=""><span class="photo__ph"><code>past-sponsor-7-5</code></span></figure>
+          <figure class="photo photo--logo photo--logo-white" data-photo><img src="assets/past-sponsor-7-6.png" alt=""><span class="photo__ph"><code>past-sponsor-7-6</code></span></figure>
+          <figure class="photo photo--logo photo--logo-white" data-photo><img src="assets/past-sponsor-7-7.png" alt=""><span class="photo__ph"><code>past-sponsor-7-7</code></span></figure>
+          <figure class="photo photo--logo photo--logo-white" data-photo><img src="assets/past-sponsor-7-8.png" alt=""><span class="photo__ph"><code>past-sponsor-7-8</code></span></figure>
+          <figure class="photo photo--logo photo--logo-white" data-photo><img src="assets/past-sponsor-7-9.png" alt=""><span class="photo__ph"><code>past-sponsor-7-9</code></span></figure>
+          <figure class="photo photo--logo photo--logo-white" data-photo><img src="assets/past-sponsor-7-10.png" alt=""><span class="photo__ph"><code>past-sponsor-7-10</code></span></figure>
+          <figure class="photo photo--logo photo--logo-white" data-photo><img src="assets/past-sponsor-7-11.png" alt=""><span class="photo__ph"><code>past-sponsor-7-11</code></span></figure>
+          <figure class="photo photo--logo photo--logo-white" data-photo><img src="assets/past-sponsor-7-12.png" alt=""><span class="photo__ph"><code>past-sponsor-7-12</code></span></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="pspk__panel" data-pspanel="6">
+      <p class="pspk__note"><span class="pspk__note-tag">特別講演</span> は他の登壇者とは別枠での登壇です。</p>
+      <div class="pspk__grid">
+        <article class="pcard pcard--special"><figure class="photo photo--portrait photo--guest" data-photo><img src="assets/past-6-1.jpg" alt="野嶋 紗己子"><span class="photo__ph"><span class="photo__ico">?</span><code>past-6-1.jpg</code></span></figure><div class="pcard__body"><span class="pcard__tag">特別講演</span><h3 class="pcard__name">野嶋 紗己子</h3><p class="pcard__org">PIVOT MC・プロデューサー</p></div></article>
+        <article class="pcard pcard--special"><figure class="photo photo--portrait photo--guest" data-photo><img src="assets/past-6-2.jpg" alt="福田 駿"><span class="photo__ph"><span class="photo__ico">?</span><code>past-6-2.jpg</code></span></figure><div class="pcard__body"><span class="pcard__tag">特別講演</span><h3 class="pcard__name">福田 駿</h3><p class="pcard__org">しゅんダイアリー就活チャンネル</p></div></article>
+        <article class="pcard"><figure class="photo photo--portrait photo--guest" data-photo><img src="assets/past-6-3.jpg" alt="稲井 美結"><span class="photo__ph"><span class="photo__ico">?</span><code>past-6-3.jpg</code></span></figure><div class="pcard__body"><h3 class="pcard__name">稲井 美結</h3><p class="pcard__org">株式会社ViZZ 代表取締役</p></div></article>
+        <article class="pcard"><figure class="photo photo--portrait photo--guest" data-photo><img src="assets/past-6-4.jpg" alt="木村 桜輔"><span class="photo__ph"><span class="photo__ico">?</span><code>past-6-4.jpg</code></span></figure><div class="pcard__body"><h3 class="pcard__name">木村 桜輔</h3><p class="pcard__org">Aress-stone entertainment</p></div></article>
+        <article class="pcard"><figure class="photo photo--portrait photo--guest" data-photo><img src="assets/past-6-5.jpg" alt="梶崎 妃那"><span class="photo__ph"><span class="photo__ico">?</span><code>past-6-5.jpg</code></span></figure><div class="pcard__body"><h3 class="pcard__name">梶崎 妃那</h3><p class="pcard__org">株式会社LinkUp</p></div></article>
+        <article class="pcard"><figure class="photo photo--portrait photo--guest" data-photo><img src="assets/past-6-6.jpg" alt="古井 敬人"><span class="photo__ph"><span class="photo__ico">?</span><code>past-6-6.jpg</code></span></figure><div class="pcard__body"><h3 class="pcard__name">古井 敬人</h3><p class="pcard__org">株式会社VIS</p></div></article>
+        <article class="pcard"><figure class="photo photo--portrait photo--guest" data-photo><img src="assets/past-6-7.jpg" alt="山岡 祐貴"><span class="photo__ph"><span class="photo__ico">?</span><code>past-6-7.jpg</code></span></figure><div class="pcard__body"><h3 class="pcard__name">山岡 祐貴</h3><p class="pcard__org">政治家</p></div></article>
+      </div>
+      <div class="pspk__sponsors">
+        <h3 class="sponsor__sub">Vol.6 の協賛企業</h3>
+        <div class="logos">
+          <figure class="photo photo--logo photo--logo-white" data-photo><img src="assets/past-sponsor-6-1.png" alt=""><span class="photo__ph"><code>past-sponsor-6-1</code></span></figure>
+          <figure class="photo photo--logo photo--logo-white" data-photo><img src="assets/past-sponsor-6-2.png" alt=""><span class="photo__ph"><code>past-sponsor-6-2</code></span></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="pspk__panel is-active" data-pspanel="5">
+      <p class="pspk__note"><span class="pspk__note-tag">特別講演</span> は他の登壇者とは別枠での登壇です。</p>
+      <div class="pspk__grid">
+        <article class="pcard pcard--special"><figure class="photo photo--portrait photo--guest" data-photo><img src="assets/past-5-1.jpg" alt="今中 康仁" style="object-position:18% 50%;transform:scale(1.55);transform-origin:50% 30%"><span class="photo__ph"><span class="photo__ico">?</span><code>past-5-1.jpg</code></span></figure><div class="pcard__body"><span class="pcard__tag">特別講演</span><h3 class="pcard__name">今中 康仁</h3><p class="pcard__org">センス・トラスト株式会社<br>代表取締役</p></div></article>
+        <article class="pcard pcard--special"><figure class="photo photo--portrait photo--guest" data-photo><img src="assets/past-5-2.jpg" alt="糸井 嘉男" style="object-position:50% 22%;transform:scale(1.08)"><span class="photo__ph"><span class="photo__ico">?</span><code>past-5-2.jpg</code></span></figure><div class="pcard__body"><span class="pcard__tag">特別講演</span><h3 class="pcard__name">糸井 嘉男</h3><p class="pcard__org">超人</p></div></article>
+        <article class="pcard"><figure class="photo photo--portrait photo--guest" data-photo><img src="assets/past-5-mc.jpg" alt="大倉 士門" style="object-position:50% 50%;transform:translateX(-6%) scale(1.4);transform-origin:50% 34%"><span class="photo__ph"><span class="photo__ico">?</span><code>past-5-mc.jpg</code></span></figure><div class="pcard__body"><span class="pcard__tag pcard__tag--mc">MC</span><h3 class="pcard__name">大倉 士門</h3><p class="pcard__org">モデル・タレント・俳優</p></div></article>
+        <article class="pcard"><figure class="photo photo--portrait photo--guest" data-photo><img src="assets/past-5-3.jpg" alt="米田 静玖" style="object-position:58% 50%;transform:scale(1.6);transform-origin:50% 32%"><span class="photo__ph"><span class="photo__ico">?</span><code>past-5-3.jpg</code></span></figure><div class="pcard__body"><h3 class="pcard__name">米田 静玖</h3><p class="pcard__org">Drop Inc, 代表取締役</p></div></article>
+        <article class="pcard"><figure class="photo photo--portrait photo--guest" data-photo><img src="assets/past-5-4.jpg" alt="米田 賢祐" style="object-position:54% 50%;transform:scale(1.55);transform-origin:50% 30%"><span class="photo__ph"><span class="photo__ico">?</span><code>past-5-4.jpg</code></span></figure><div class="pcard__body"><h3 class="pcard__name">米田 賢祐</h3><p class="pcard__org">株式会社笑覚 代表取締役</p></div></article>
+        <article class="pcard"><figure class="photo photo--portrait photo--guest" data-photo><img src="assets/past-5-5.jpg" alt="合田 瞳" style="object-position:18% 50%;transform:scale(1.6);transform-origin:50% 34%"><span class="photo__ph"><span class="photo__ico">?</span><code>past-5-5.jpg</code></span></figure><div class="pcard__body"><h3 class="pcard__name">合田 瞳</h3><p class="pcard__org">株式会社Quwak 代表取締役</p></div></article>
+        <article class="pcard"><figure class="photo photo--portrait photo--guest" data-photo><img src="assets/past-5-6.jpg" alt="ゆーてん" style="object-position:50% 10%;transform:translateX(-18%) scale(1.5)"><span class="photo__ph"><span class="photo__ico">?</span><code>past-5-6.jpg</code></span></figure><div class="pcard__body"><h3 class="pcard__name">ゆーてん</h3><p class="pcard__org">株式会社Re'Dent 代表</p></div></article>
+        <article class="pcard"><figure class="photo photo--portrait photo--guest" data-photo><img src="assets/past-5-7.jpg" alt="前原 剛" style="object-position:50% 30%"><span class="photo__ph"><span class="photo__ico">?</span><code>past-5-7.jpg</code></span></figure><div class="pcard__body"><h3 class="pcard__name">前原 剛</h3><p class="pcard__org">若手起業家／投資家</p></div></article>
+      </div>
+      <div class="pspk__feature">
+        <figure class="photo photo--feature" data-photo><img src="assets/past-5-live.jpg" alt="鈴木鈴木"><span class="photo__ph"><span class="photo__ico">🖼️</span><code>past-5-live.jpg</code></span></figure>
+        <div class="pspk__feature-body">
+          <span class="pcard__tag">バイブスジャパン初！アーティストライブ実施</span>
+          <p class="pspk__feature-name">鈴木鈴木</p>
+          <p class="pspk__feature-desc">2017年、TBS系列で放送された音楽トークバラエティ番組「Momm!!」の「歌唱力No.1決定戦」に出演。6代目チャンピオンとなり、MCの中居正広に「鈴木鈴木」と命名された。<br><br>TikTokのフォロワー数は約64万人で、2021年8月リリースの新曲「海のリビング」は6300万回以上再生され、人気急上昇で1位を獲得。同年11月にリリースした「ホワイトキス」はストリーミング累計再生数が1.3億回を突破し、若者から人気を集める。</p>
+        </div>
+      </div>
+      <div class="pspk__sponsors">
+        <h3 class="sponsor__sub">Vol.5 の協賛企業</h3>
+        <div class="logos">
+          <figure class="photo photo--logo photo--logo-white" data-photo><img src="assets/past-sponsor-1.png" alt=""><span class="photo__ph"><code>past-sponsor-1</code></span></figure>
+          <figure class="photo photo--logo photo--logo-white" data-photo><img src="assets/past-sponsor-2.png" alt=""><span class="photo__ph"><code>past-sponsor-2</code></span></figure>
+          <figure class="photo photo--logo photo--logo-white" data-photo><img src="assets/past-sponsor-3.jpg" alt=""><span class="photo__ph"><code>past-sponsor-3</code></span></figure>
+          <figure class="photo photo--logo photo--logo-white" data-photo><img src="assets/past-sponsor-4.jpg" alt=""><span class="photo__ph"><code>past-sponsor-4</code></span></figure>
+          <figure class="photo photo--logo photo--logo-white" data-photo><img src="assets/past-sponsor-5.png" alt=""><span class="photo__ph"><code>past-sponsor-5</code></span></figure>
+          <figure class="photo photo--logo photo--logo-white" data-photo><img src="assets/past-sponsor-6.png" alt=""><span class="photo__ph"><code>past-sponsor-6</code></span></figure>
+          <figure class="photo photo--logo photo--logo-white" data-photo><img src="assets/past-sponsor-7.jpg" alt=""><span class="photo__ph"><code>past-sponsor-7</code></span></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VOICE / PROOF ============ -->
+<section class="section voice" id="voice">
+  <div class="wrap sec-head">
+    <p class="kicker">VOICE &amp; PROOF</p>
+    <h2 class="sec-title">過去実績・参加者の声</h2>
+  </div>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b class="stat__num" data-count="5000" data-suffix="＋">0</b><span>累計動員数（名）</span></div>
+      <div class="stat"><b class="stat__num" data-count="40" data-suffix="＋">0</b><span>内定・特別インターン実績</span></div>
+      <div class="stat"><b class="stat__num" data-count="600">0</b><span>今回の学生定員（名）</span></div>
+    </div>
+
+    <div class="gallery">
+      <p class="gallery__label">過去開催の熱狂</p>
+      <div class="gallery__tabs" role="tablist">
+        <button type="button" class="gtab is-active" data-gtab="5" role="tab" aria-selected="true">Vol.5</button>
+        <button type="button" class="gtab" data-gtab="6" role="tab" aria-selected="false">Vol.6</button>
+        <button type="button" class="gtab" data-gtab="7" role="tab" aria-selected="false">Vol.7</button>
+      </div>
+
+      <div class="gallery__panel" data-gpanel="7">
+        <div class="gallery__grid">
+          <figure class="photo photo--gallery" data-photo><img src="assets/gallery-7-1.jpg" alt=""><span class="photo__ph"><span class="photo__ico">🖼️</span><code>gallery-7-1.jpg</code></span></figure>
+          <figure class="photo photo--gallery" data-photo><img src="assets/gallery-7-2.jpg" alt=""><span class="photo__ph"><span class="photo__ico">🖼️</span><code>gallery-7-2.jpg</code></span></figure>
+          <figure class="photo photo--gallery" data-photo><img src="assets/gallery-7-3.jpg" alt=""><span class="photo__ph"><span class="photo__ico">🖼️</span><code>gallery-7-3.jpg</code></span></figure>
+          <figure class="photo photo--gallery" data-photo><img src="assets/gallery-7-4.jpg" alt=""><span class="photo__ph"><span class="photo__ico">🖼️</span><code>gallery-7-4.jpg</code></span></figure>
+          <figure class="photo photo--gallery" data-photo><img src="assets/gallery-7-5.jpg" alt=""><span class="photo__ph"><span class="photo__ico">🖼️</span><code>gallery-7-5.jpg</code></span></figure>
+          <figure class="photo photo--gallery" data-photo><img src="assets/gallery-7-6.jpg" alt=""><span class="photo__ph"><span class="photo__ico">🖼️</span><code>gallery-7-6.jpg</code></span></figure>
+        </div>
+      </div>
+
+      <div class="gallery__panel" data-gpanel="6">
+        <div class="gallery__grid">
+          <figure class="photo photo--gallery" data-photo><img src="assets/gallery-6-1.jpg" alt=""><span class="photo__ph"><span class="photo__ico">🖼️</span><code>gallery-6-1.jpg</code></span></figure>
+          <figure class="photo photo--gallery" data-photo><img src="assets/gallery-6-2.jpg" alt=""><span class="photo__ph"><span class="photo__ico">🖼️</span><code>gallery-6-2.jpg</code></span></figure>
+          <figure class="photo photo--gallery" data-photo><img src="assets/gallery-6-3.jpg" alt=""><span class="photo__ph"><span class="photo__ico">🖼️</span><code>gallery-6-3.jpg</code></span></figure>
+          <figure class="photo photo--gallery" data-photo><img src="assets/gallery-6-4.jpg" alt=""><span class="photo__ph"><span class="photo__ico">🖼️</span><code>gallery-6-4.jpg</code></span></figure>
+          <figure class="photo photo--gallery" data-photo><img src="assets/gallery-6-5.jpg" alt=""><span class="photo__ph"><span class="photo__ico">🖼️</span><code>gallery-6-5.jpg</code></span></figure>
+          <figure class="photo photo--gallery" data-photo><img src="assets/gallery-6-6.jpg" alt=""><span class="photo__ph"><span class="photo__ico">🖼️</span><code>gallery-6-6.jpg</code></span></figure>
+        </div>
+      </div>
+
+      <div class="gallery__panel is-active" data-gpanel="5">
+        <div class="gallery__grid">
+          <figure class="photo photo--gallery" data-photo><img src="assets/gallery-5-1.jpg" alt=""><span class="photo__ph"><span class="photo__ico">🖼️</span><code>gallery-5-1.jpg</code></span></figure>
+          <figure class="photo photo--gallery" data-photo><img src="assets/gallery-5-2.jpg" alt=""><span class="photo__ph"><span class="photo__ico">🖼️</span><code>gallery-5-2.jpg</code></span></figure>
+          <figure class="photo photo--gallery" data-photo><img src="assets/gallery-5-3.jpg" alt=""><span class="photo__ph"><span class="photo__ico">🖼️</span><code>gallery-5-3.jpg</code></span></figure>
+          <figure class="photo photo--gallery" data-photo><img src="assets/gallery-5-4.jpg" alt=""><span class="photo__ph"><span class="photo__ico">🖼️</span><code>gallery-5-4.jpg</code></span></figure>
+          <figure class="photo photo--gallery" data-photo><img src="assets/gallery-5-5.jpg" alt=""><span class="photo__ph"><span class="photo__ico">🖼️</span><code>gallery-5-5.jpg</code></span></figure>
+          <figure class="photo photo--gallery" data-photo><img src="assets/gallery-5-6.jpg" alt=""><span class="photo__ph"><span class="photo__ico">🖼️</span><code>gallery-5-6.jpg</code></span></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="unis">
+      <p class="unis__label">参加大学実績</p>
+      <ul>
+        <li>京都大学</li><li>大阪大学</li><li>神戸大学</li><li>同志社大学</li>
+        <li>立命館大学</li><li>関西学院大学</li><li>関西大学</li><li>近畿大学</li><li>ほか多数</li>
+      </ul>
+    </div>
+
+    <div class="voices">
+      <blockquote class="vc"><p>条件じゃなく『この人と働きたい』と思える企業に出会えて、その場で選考が決まった。</p><cite>20代・学生</cite></blockquote>
+      <blockquote class="vc"><p>同世代の熱量に刺激を受け、自分の人生を本気で生きようと思えた。</p><cite>20代・学生</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SPONSOR ============ -->
+<section class="section sponsor" id="sponsor">
+  <div class="wrap sec-head">
+    <p class="kicker">SPONSOR</p>
+    <h2 class="sec-title">参画企業</h2>
+    <p class="sec-lead">志ある企業が続々参画。あなたの運命の1社が、ここに。</p>
+  </div>
+  <div class="wrap">
+    <div class="logos">
+      <figure class="photo photo--logo photo--logo-white" data-photo><img src="assets/sponsor-1.png" alt=""><span class="photo__ph"><code>sponsor-1</code></span></figure>
+      <figure class="photo photo--logo photo--logo-white" data-photo><img src="assets/sponsor-2.png" alt=""><span class="photo__ph"><code>sponsor-2</code></span></figure>
+      <figure class="photo photo--logo photo--logo-white" data-photo><img src="assets/sponsor-3.png" alt=""><span class="photo__ph"><code>sponsor-3</code></span></figure>
+      <figure class="photo photo--logo" data-photo><img src="assets/sponsor-4.png" alt=""><span class="photo__ph"><code>sponsor-4</code></span></figure>
+      <figure class="photo photo--logo" data-photo><img src="assets/sponsor-5.png" alt=""><span class="photo__ph"><code>sponsor-5</code></span></figure>
+      <figure class="photo photo--logo" data-photo><img src="assets/sponsor-6.png" alt=""><span class="photo__ph"><code>sponsor-6</code></span></figure>
+      <figure class="photo photo--logo" data-photo><img src="assets/sponsor-7.png" alt=""><span class="photo__ph"><code>sponsor-7</code></span></figure>
+      <figure class="photo photo--logo" data-photo><img src="assets/sponsor-8.png" alt=""><span class="photo__ph"><code>sponsor-8</code></span></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section faq" id="faq">
+  <div class="wrap sec-head">
+    <p class="kicker">FAQ</p>
+    <h2 class="sec-title">よくある質問</h2>
+  </div>
+  <div class="wrap wrap--narrow">
+    <div class="faq__list">
+      <details class="faq__item"><summary>就活の知識や経験がなくても参加できますか？</summary><div class="faq__a">もちろん大歓迎です。就活目的だけでなく、起業、インターン探し、同世代の仲間作りなど、一歩を踏み出したいすべての学生を対象としています。</div></details>
+      <details class="faq__item"><summary>服装に指定はありますか？</summary><div class="faq__a">スーツでお越しいただく必要はありません。自分らしさを表現できる私服でお越しください。</div></details>
+      <details class="faq__item"><summary>費用はかかりますか？</summary><div class="faq__a">学生の方は完全無料でご参加いただけます。</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OUTLINE ============ -->
+<section class="section outline" id="outline">
+  <div class="wrap sec-head">
+    <p class="kicker">OUTLINE</p>
+    <h2 class="sec-title">開催概要</h2>
+  </div>
+  <div class="wrap wrap--mid">
+    <dl class="outline__list">
+      <div><dt>イベント名</dt><dd>バイブスジャパン vol.8（VIBES JAPAN vol.8）</dd></div>
+      <div><dt>開催日程</dt><dd>2027年2月13日（土）</dd></div>
+      <div><dt>開催場所</dt><dd>なんばHatch（〒556-0017 大阪市浪速区湊町1-3-1）</dd></div>
+      <div><dt>開催形式</dt><dd>現地開催</dd></div>
+      <div><dt>定員</dt><dd>学生600名（完全事前予約制）</dd></div>
+      <div><dt>参加費</dt><dd>学生無料</dd></div>
+      <div><dt>参加対象</dt><dd>学生（大学・大学院・専門学校・高校）</dd></div>
+      <div><dt>主催・運営</dt><dd>株式会社やるかやらんか（代表取締役 西 奈槻）</dd></div>
+      <div><dt>お問い合わせ</dt><dd>（お問い合わせ先メールアドレスを設定してください）</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============ ENTRY（最下部フォーム） ============ -->
+<section class="section entry" id="entry">
+  <div class="wrap sec-head">
+    <p class="kicker">ENTRY</p>
+    <h2 class="sec-title">無料参加を申し込む</h2>
+    <p class="sec-lead">本気で人生を変えたいお前へ。入力は簡単30秒。</p>
+  </div>
+  <div class="wrap wrap--narrow">
+    <div class="seat-meter" data-total="600" data-taken="552">
+      <div class="seat-meter__head">
+        <span class="seat-meter__label">リアルタイム残席</span>
+        <span class="seat-meter__count"><b id="seatRemainMain">48</b> / 600席</span>
+      </div>
+      <div class="seat-meter__bar"><span class="seat-meter__fill" style="--pct:92%"></span></div>
+      <p class="seat-meter__note">定員になり次第、自動的に受付を終了いたします。</p>
+    </div>
+    <form class="entry-form" data-form="main" novalidate>
+      <div class="entry-form__grid">
+        <div class="field"><label>氏名 <span class="req">必須</span></label><input type="text" name="name" autocomplete="name" placeholder="山田 太郎" required><p class="err"></p></div>
+        <div class="field"><label>フリガナ <span class="req">必須</span></label><input type="text" name="kana" placeholder="ヤマダ タロウ" required><p class="err"></p></div>
+        <div class="field field--full"><label>大学・学校名 <span class="req">必須</span></label><input type="text" name="university" placeholder="◯◯大学" required><p class="err"></p></div>
+        <div class="field"><label>学部 <span class="req">必須</span></label><input type="text" name="faculty" placeholder="経済学部" required><p class="err"></p></div>
+        <div class="field"><label>学科 <span class="req">必須</span></label><input type="text" name="department" placeholder="経済学科" required><p class="err"></p></div>
+        <div class="field"><label>学年 <span class="req">必須</span></label><select name="grade" required><option value="" disabled selected>選択してください</option><option>学部1年</option><option>学部2年</option><option>学部3年</option><option>学部4年</option><option>修士1年</option><option>修士2年</option><option>博士課程</option><option>高校生</option><option>専門学校生</option><option>その他</option></select><p class="err"></p></div>
+        <div class="field"><label>メールアドレス <span class="req">必須</span></label><input type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required><p class="err"></p></div>
+        <div class="field field--full"><label>電話番号 <span class="req">必須</span></label><input type="tel" name="tel" autocomplete="tel" inputmode="tel" placeholder="09012345678" required><p class="err"></p></div>
+      </div>
+      <fieldset class="field field--check">
+        <legend>参加目的 <span class="req req--soft">複数選択可</span></legend>
+        <label class="check"><input type="checkbox" name="purpose" value="就活・選考直結インターン探し"><span>就活・選考直結インターン探し</span></label>
+        <label class="check"><input type="checkbox" name="purpose" value="起業・ビジネスパートナー探し"><span>起業・ビジネスパートナー探し</span></label>
+        <label class="check"><input type="checkbox" name="purpose" value="熱量のある仲間・同世代との出会い"><span>熱量のある仲間・同世代との出会い</span></label>
+        <label class="check"><input type="checkbox" name="purpose" value="豪華ライブ・特別講演の体感"><span>豪華ライブ・特別講演の体感</span></label>
+      </fieldset>
+      <label class="agree"><input type="checkbox" name="agree" required><span><a href="#faq">利用規約・プライバシーポリシー</a>に同意する</span></label>
+      <button type="submit" class="btn btn--primary btn--block btn--submit"><span>利用規約に同意して無料参加を申し込む</span></button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ フッター ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="site-footer__logo" data-logo-wrap>
+      <img class="logo-img" src="assets/logo.png" alt="VIBES JAPAN vol.8" data-logo>
+      <span class="logo-text">VIBES JAPAN <span>vol.8</span></span>
+    </p>
+    <p class="site-footer__info">2027.2.13(土) ｜ なんばHatch（大阪市浪速区湊町1-3-1）</p>
+    <p class="site-footer__org">主催・運営：<span class="footer-org-logo" data-logo-wrap><img class="logo-img" src="assets/logo-yaruka.png" alt="株式会社やるかやらんか" data-logo><span class="logo-text">株式会社やるかやらんか</span></span><span class="footer-org-rep">（代表取締役：西 奈槻）</span></p>
+    <p class="site-footer__copy">&copy; 2027 VIBES JAPAN / やるかやらんか Inc. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<a href="#entry" class="sticky-cta" id="stickyCta">無料参加枠を確保する</a>
+
+<!-- ============ サンクスモーダル ============ -->
+<div class="thanks" id="thanksModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="thanksTitle">
+  <div class="thanks__overlay" data-close></div>
+  <div class="thanks__panel" role="document">
+    <button class="thanks__close" type="button" data-close aria-label="閉じる">&times;</button>
+    <div class="thanks__check" aria-hidden="true">✓</div>
+    <h2 class="thanks__title" id="thanksTitle">参加申込が完了しました！</h2>
+    <p class="thanks__lead">ようこそ、バイブスジャパンへ。<br>ご登録のメールアドレスに<b>入場用QRコード</b>と当日のご案内を送信しました。</p>
+    <div class="thanks__ticket">
+      <p class="thanks__ticket-label">ENTRY TICKET</p>
+      <div class="thanks__qr" id="thanksQr" aria-hidden="true"></div>
+      <p class="thanks__serial">シリアルNo. <b id="thanksSerial">VJ8-000000</b></p>
+      <p class="thanks__date">2027.2.13 (SAT) ／ なんばHatch</p>
+    </div>
+    <p class="thanks__note">※メールが届かない場合は迷惑メールフォルダをご確認ください。当日はこのQRコードで入場できます。</p>
+    <button class="btn btn--ghost thanks__ok" type="button" data-close>閉じる</button>
+  </div>
+</div>
+
+<script src="js/script.js" defer></script>
+</body>
+</html>

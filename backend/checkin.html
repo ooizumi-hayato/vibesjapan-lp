@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<base target="_top">
+<style>
+  :root{ --red:#FF2233; --bg:#0A0A0A; --bg2:#161616; --line:rgba(255,255,255,.12); }
+  *{ box-sizing:border-box; }
+  body{ margin:0; font-family:-apple-system,"Noto Sans JP",sans-serif; background:var(--bg); color:#f4f4f4; }
+  .wrap{ max-width:520px; margin:auto; padding:18px 16px 40px; }
+  .head{ text-align:center; padding:14px 0 18px; }
+  .head b{ font-size:18px; font-weight:900; }
+  .head span{ display:block; font-size:12px; color:#9a9a9a; margin-top:2px; }
+  .stats{ display:flex; gap:10px; margin-bottom:16px; }
+  .stat{ flex:1; background:var(--bg2); border:1px solid var(--line); border-radius:12px; padding:12px; text-align:center; }
+  .stat b{ display:block; font-size:26px; color:var(--red); }
+  .stat span{ font-size:11px; color:#9a9a9a; }
+  #reader{ width:100%; border-radius:14px; overflow:hidden; margin-bottom:14px; background:#000; }
+  .row{ display:flex; gap:8px; margin-bottom:14px; }
+  input{ flex:1; padding:15px; font-size:17px; background:#0d0d0d; color:#fff; border:1.5px solid var(--line); border-radius:10px; text-transform:uppercase; }
+  input:focus{ outline:none; border-color:var(--red); }
+  button{ font-family:inherit; cursor:pointer; border:none; border-radius:10px; font-weight:900; }
+  .btn{ background:var(--red); color:#fff; padding:15px 18px; font-size:15px; }
+  .btn-cam{ background:#222; color:#fff; border:1px solid var(--line); width:100%; padding:12px; margin-bottom:14px; }
+  .result{ border-radius:14px; padding:22px 18px; text-align:center; display:none; margin-bottom:14px; }
+  .result.show{ display:block; animation:pop .25s ease; }
+  @keyframes pop{ from{ opacity:0; transform:scale(.96);} to{ opacity:1; transform:none;} }
+  .result.ok{ background:#0e2a12; border:1.5px solid #2ecc71; }
+  .result.already{ background:#2a2410; border:1.5px solid #e6b800; }
+  .result.ng{ background:#2a0e12; border:1.5px solid var(--red); }
+  .result .r-title{ font-size:22px; font-weight:900; margin-bottom:6px; }
+  .result .r-name{ font-size:20px; font-weight:900; }
+  .result .r-sub{ font-size:13px; color:#cfcfcf; margin-top:4px; }
+  .confirm{ background:var(--bg2); border:1px solid var(--line); border-radius:14px; padding:18px; text-align:center; display:none; margin-bottom:14px; }
+  .confirm.show{ display:block; }
+  .confirm .c-name{ font-size:20px; font-weight:900; margin:6px 0; }
+  .confirm .c-actions{ display:flex; gap:8px; margin-top:14px; }
+  .confirm .c-actions button{ flex:1; padding:15px; font-size:15px; }
+  .btn-cancel{ background:#333; color:#fff; }
+  .loading{ text-align:center; color:#9a9a9a; padding:10px; display:none; }
+  .loading.show{ display:block; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <b>受付チェックイン</b>
+    <span>バイブスジャパン vol.8 ／ なんばHatch</span>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><b id="statEntered">–</b><span>入場済</span></div>
+    <div class="stat"><b id="statTotal">–</b><span>総申込</span></div>
+  </div>
+
+  <button class="btn-cam" id="camToggle">📷 カメラでQRを読み取る</button>
+  <div id="reader" style="display:none"></div>
+
+  <div class="row">
+    <input id="serial" placeholder="VJ8-XXXXXX" autocomplete="off" autocapitalize="characters">
+    <button class="btn" id="lookupBtn">照会</button>
+  </div>
+
+  <div class="loading" id="loading">照会中…</div>
+
+  <div class="confirm" id="confirm">
+    <div style="font-size:12px;color:#9a9a9a">この方を入場させますか？</div>
+    <div class="c-name" id="cName"></div>
+    <div class="r-sub" id="cSchool"></div>
+    <div class="c-actions">
+      <button class="btn-cancel" id="cCancel">キャンセル</button>
+      <button class="btn" id="cEnter">入場させる</button>
+    </div>
+  </div>
+
+  <div class="result" id="result">
+    <div class="r-title" id="rTitle"></div>
+    <div class="r-name" id="rName"></div>
+    <div class="r-sub" id="rSub"></div>
+  </div>
+</div>
+
+<!-- QRスキャナ（任意・読み取りにはカメラ許可が必要） -->
+<script src="https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+<script>
+  var $ = function (id) { return document.getElementById(id); };
+  var currentSerial = '';
+
+  function refreshStats() {
+    google.script.run.withSuccessHandler(function (s) {
+      $('statEntered').textContent = s.entered;
+      $('statTotal').textContent = s.total;
+    }).getStats();
+  }
+  refreshStats();
+
+  function showResult(cls, title, name, sub) {
+    var r = $('result');
+    r.className = 'result show ' + cls;
+    $('rTitle').textContent = title;
+    $('rName').textContent = name || '';
+    $('rSub').textContent = sub || '';
+    $('confirm').className = 'confirm';
+  }
+
+  function lookup(serial) {
+    serial = (serial || $('serial').value || '').trim().toUpperCase();
+    if (!serial) return;
+    currentSerial = serial;
+    $('serial').value = serial;
+    $('result').className = 'result';
+    $('confirm').className = 'confirm';
+    $('loading').className = 'loading show';
+    google.script.run.withSuccessHandler(function (res) {
+      $('loading').className = 'loading';
+      if (!res.found) { showResult('ng', '❌ 未登録', '', 'シリアル ' + serial + ' は見つかりません'); return; }
+      if (res.status === '入場済') { showResult('already', '⚠️ 入場済み', res.name + ' 様', res.school + ' ／ ' + (res.enteredAt ? res.enteredAt + ' 入場' : '')); return; }
+      // 未入場 → 確認表示
+      $('cName').textContent = res.name + ' 様';
+      $('cSchool').textContent = res.school;
+      $('confirm').className = 'confirm show';
+    }).lookupSerial(serial);
+  }
+
+  function doEnter() {
+    if (!currentSerial) return;
+    $('confirm').className = 'confirm';
+    $('loading').className = 'loading show';
+    google.script.run.withSuccessHandler(function (res) {
+      $('loading').className = 'loading';
+      if (!res.ok) { showResult('ng', '❌ エラー', '', res.error || ''); return; }
+      if (res.already) { showResult('already', '⚠️ 入場済み', res.name + ' 様', res.school); }
+      else { showResult('ok', '✅ 入場OK', res.name + ' 様', res.school + ' ／ ' + res.enteredAt + ' 入場'); }
+      $('serial').value = '';
+      refreshStats();
+    }).markEntered(currentSerial);
+  }
+
+  $('lookupBtn').addEventListener('click', function () { lookup(); });
+  $('serial').addEventListener('keydown', function (e) { if (e.key === 'Enter') lookup(); });
+  $('cEnter').addEventListener('click', doEnter);
+  $('cCancel').addEventListener('click', function () { $('confirm').className = 'confirm'; $('serial').value = ''; });
+
+  // カメラQR
+  var html5Qr = null, camOn = false;
+  $('camToggle').addEventListener('click', function () {
+    if (typeof Html5Qrcode === 'undefined') { alert('QRスキャナを読み込めませんでした。手入力をご利用ください。'); return; }
+    if (camOn) { stopCam(); return; }
+    $('reader').style.display = 'block';
+    html5Qr = new Html5Qrcode('reader');
+    html5Qr.start({ facingMode: 'environment' }, { fps: 10, qrbox: 240 },
+      function (decoded) { stopCam(); lookup(decoded); },
+      function () {}
+    ).then(function () { camOn = true; $('camToggle').textContent = '■ カメラを止める'; })
+     .catch(function () { alert('カメラを起動できませんでした。手入力をご利用ください。'); $('reader').style.display = 'none'; });
+  });
+  function stopCam() {
+    if (html5Qr && camOn) { html5Qr.stop().then(function () { html5Qr.clear(); }); }
+    camOn = false; $('reader').style.display = 'none'; $('camToggle').textContent = '📷 カメラでQRを読み取る';
+  }
+</script>
+</body>
+</html>
