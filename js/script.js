@@ -10,7 +10,30 @@
   'use strict';
 
   /* ★ バックエンド連携ポイント（未設定＝モック動作） */
-  var ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbwnAkx0FRNZiCf0fvQFiHAGVyp5a3H3rSC4scm49-lntf3UKdKqIBl8IgGC5oKa5a9MUA/exec'; // ← GASウェブアプリURL
+  var ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbx1_32P8DwnMSor49zQu7CmARNJ6Cw-8BukcxcNL7VNO3EoBjEGOCvLaVwpQ9YxDOC5/exec'; // ← GASウェブアプリURL
+
+  /* ★ 表記の設定（ここだけ直せば LP の定員まわりの表記が変わる）
+     - capacity       … 定員（数）。OUTLINE・実績欄の数字に使う
+     - capacityText   … ヒーローの「定員」ピルの文言
+     - tickerText     … 画面上部の帯の文言
+     - outlineCapacity… OUTLINE の「定員」欄の文言
+     - showSeatMeter  … 残席メーターを出すか（true/false）
+     - seatMode       … 'live'＝スプレッドシートの申込数をそのまま反映（GAS に count 機能が必要）
+                        'manual'＝下の seatManualTaken を手で入れた数で表示
+     - seatManualTaken… manual のときの申込済み人数
+     - seatShowFrom   … 申込数がこの人数に達するまでメーターを隠す（0＝最初から出す）
+     ※ live のときに数が取れなかった場合は、嘘の数を出さずメーターを隠す
+     ※ 日本語の本文（index.html の meta description 等）はここでは変わらない */
+  var SITE = {
+    capacity: 1000,
+    capacityText: '1,000名限定',
+    tickerText: '定員1,000名限定／学生完全無料・完全事前予約制',
+    outlineCapacity: '学生1,000名（完全事前予約制）',
+    showSeatMeter: true,
+    seatMode: 'live',
+    seatManualTaken: 0,
+    seatShowFrom: 0
+  };
 
   function $(s, c) { return (c || document).querySelector(s); }
   function $all(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
@@ -229,7 +252,7 @@
       Promise.resolve(submitToBackend(collectData(form)))
         .then(function (resp) {
           if (resp && resp.ok === false) { throw new Error(resp.error || 'error'); }
-          form.reset(); openThanks(resp); decrementSeat();
+          form.reset(); openThanks(resp); refreshSeat();
         })
         .catch(function () { alert('送信に失敗しました。通信環境をご確認のうえ、再度お試しください。'); })
         .finally(function () { if (btn) { btn.disabled = false; btn.style.opacity = ''; } if (label) label.textContent = original; });
@@ -239,14 +262,40 @@
   /* =========================================================
      残席メーター
      ========================================================= */
-  var seatTotal = 600, seatTaken = 552;
-  function renderSeat() {
-    var remain = Math.max(0, seatTotal - seatTaken), pct = (seatTaken / seatTotal * 100).toFixed(1) + '%';
-    $all('#seatRemainQuick, #seatRemainMain').forEach(function (el) { el.textContent = remain; });
-    $all('.seat-meter__fill').forEach(function (el) { el.style.setProperty('--pct', pct); });
+  var seatTotal = SITE.capacity, seatTaken = SITE.seatTaken;
+  function applySite() {
+    $all('[data-site]').forEach(function (el) {
+      var v = SITE[el.getAttribute('data-site')];
+      if (v !== undefined) el.textContent = (typeof v === 'number') ? v.toLocaleString('ja-JP') : v;
+    });
+    $all('[data-site-count]').forEach(function (el) {
+      var v = SITE[el.getAttribute('data-site-count')];
+      if (typeof v === 'number') el.setAttribute('data-count', v);
+    });
   }
-  function decrementSeat() { seatTaken = Math.min(seatTotal, seatTaken + 1); renderSeat(); }
-  renderSeat();
+  function setMeterVisible(v) { $all('.seat-meter').forEach(function (el) { el.style.display = v ? '' : 'none'; }); }
+  function renderSeat() {
+    var remain = Math.max(0, seatTotal - seatTaken), pct = Math.min(100, seatTaken / seatTotal * 100).toFixed(1) + '%';
+    $all('#seatRemainQuick, #seatRemainMain').forEach(function (el) { el.textContent = remain.toLocaleString('ja-JP'); });
+    $all('.seat-meter__fill').forEach(function (el) { el.style.setProperty('--pct', pct); });
+    $all('[data-seat-label]').forEach(function (el) { el.textContent = SITE.seatMode === 'live' ? 'リアルタイム残席' : '残席'; });
+    setMeterVisible(SITE.showSeatMeter && seatTaken >= SITE.seatShowFrom);
+  }
+  // 申込数を取得して表示を更新（live＝GASの count、manual＝設定値）。取れないときは隠す
+  function refreshSeat() {
+    if (!SITE.showSeatMeter) { setMeterVisible(false); return; }
+    if (SITE.seatMode === 'manual') { seatTaken = SITE.seatManualTaken; renderSeat(); return; }
+    if (!ENDPOINT_URL) { setMeterVisible(false); return; }
+    fetch(ENDPOINT_URL + '?action=count&t=' + Date.now())
+      .then(function (res) { return res.json(); })
+      .then(function (j) {
+        if (j && j.ok && typeof j.count === 'number') { seatTaken = j.count; renderSeat(); }
+        else { setMeterVisible(false); }
+      })
+      .catch(function () { setMeterVisible(false); });
+  }
+  applySite();
+  refreshSeat();
 
   /* =========================================================
      カウントアップ & reveal

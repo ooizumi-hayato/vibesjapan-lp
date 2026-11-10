@@ -96,6 +96,10 @@ function doPost(e) {
 
 /* ============ GET受信（動作確認 ＆ 受付チェックイン画面） ============ */
 function doGet(e) {
+  // 申込数（LPの残席メーター用）。個人情報は返さず、人数だけ返す
+  if (e && e.parameter && e.parameter.action === 'count') {
+    return json({ ok: true, count: Math.max(0, getSheet_().getLastRow() - 1) });
+  }
   var page = e && e.parameter ? e.parameter.page : '';
   if (page === 'checkin') {
     // 合言葉チェック

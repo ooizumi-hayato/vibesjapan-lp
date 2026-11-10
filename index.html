@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="format-detection" content="telephone=no">
 <title>バイブスジャパン vol.8 ｜ 日本の若者よ、立ち上がれ。</title>
-<meta name="description" content="2027.2.13(土) なんばHatch。関西最大級・600名の学生 × 志ある企業 × 豪華ゲスト。就活・起業・インターン・仲間探し、すべての選択肢が動き出す1日。学生完全無料・完全事前予約制。">
+<meta name="description" content="2027.2.13(土) なんばHatch。関西最大級・1,000名の学生 × 志ある企業 × 豪華ゲスト。就活・起業・インターン・仲間探し、すべての選択肢が動き出す1日。学生完全無料・完全事前予約制。">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="バイブスジャパン vol.8 ｜ 日本の若者よ、立ち上がれ。">
-<meta property="og:description" content="2027.2.13(土) なんばHatch。関西最大級・600名の学生が集う祭典。学生完全無料。">
+<meta property="og:description" content="2027.2.13(土) なんばHatch。関西最大級・1,000名の学生が集う祭典。学生完全無料。">
 <meta property="og:site_name" content="VIBES JAPAN vol.8">
 <meta property="og:image" content="assets/ogp.jpg">
 <meta name="theme-color" content="#0A0A0A">
@@ -39,7 +39,7 @@
   <div class="hdr__ticker">
     <div class="hdr__ticker-inner">
       <span class="hdr__dot"></span>
-      <span class="hdr__ticker-text">【残席わずか】定員600名／完売にて募集終了</span>
+      <span class="hdr__ticker-text" data-site="tickerText">定員1,000名限定／学生完全無料・完全事前予約制</span>
     </div>
   </div>
   <div class="hdr__bar">
@@ -96,7 +96,7 @@
     </div>
     <div class="hero__pills">
       <span class="hero__pill"><b>学生</b>無料</span>
-      <span class="hero__pill"><b>定員</b>600名限定</span>
+      <span class="hero__pill"><b>定員</b><span data-site="capacityText">1,000名限定</span></span>
     </div>
     <a href="#entry" class="btn btn--primary hero__btn">無料参加枠を確保する</a>
     <p class="hero__scroll">SCROLL</p>
@@ -160,13 +160,13 @@
 <!-- ============ QUICK ENTRY（FV直下フォーム） ============ -->
 <section class="section quick" id="quick">
   <div class="wrap wrap--narrow">
-    <div class="seat-meter" data-total="600" data-taken="552">
+    <div class="seat-meter" style="display:none">
       <div class="seat-meter__head">
-        <span class="seat-meter__label">リアルタイム残席</span>
-        <span class="seat-meter__count"><b id="seatRemainQuick">48</b> / 600席</span>
+        <span class="seat-meter__label" data-seat-label>リアルタイム残席</span>
+        <span class="seat-meter__count"><b id="seatRemainQuick">-</b> / <span data-site="capacity">1000</span>席</span>
       </div>
       <div class="seat-meter__bar"><span class="seat-meter__fill" style="--pct:92%"></span></div>
-      <p class="seat-meter__note">席数限定・完売になり次第、事前告知なく募集を即時終了します。</p>
+      <p class="seat-meter__note">席数限定・定員に達した場合は、予告なく受付を終了することがあります。</p>
     </div>
     <h2 class="quick__title"><span class="quick__badge">簡単30秒</span>今すぐ無料参加枠を確保する</h2>
     <form class="entry-form entry-form--quick" data-form="quick" novalidate>
@@ -459,7 +459,7 @@
     <div class="stats">
       <div class="stat"><b class="stat__num" data-count="5000" data-suffix="＋">0</b><span>累計動員数（名）</span></div>
       <div class="stat"><b class="stat__num" data-count="40" data-suffix="＋">0</b><span>内定・特別インターン実績</span></div>
-      <div class="stat"><b class="stat__num" data-count="600">0</b><span>今回の学生定員（名）</span></div>
+      <div class="stat"><b class="stat__num" data-count="1000" data-site-count="capacity">0</b><span>今回の学生定員（名）</span></div>
     </div>
 
     <div class="gallery">
@@ -567,7 +567,7 @@
       <div><dt>開催日程</dt><dd>2027年2月13日（土）</dd></div>
       <div><dt>開催場所</dt><dd>なんばHatch（〒556-0017 大阪市浪速区湊町1-3-1）</dd></div>
       <div><dt>開催形式</dt><dd>現地開催</dd></div>
-      <div><dt>定員</dt><dd>学生600名（完全事前予約制）</dd></div>
+      <div><dt>定員</dt><dd data-site="outlineCapacity">学生1,000名（完全事前予約制）</dd></div>
       <div><dt>参加費</dt><dd>学生無料</dd></div>
       <div><dt>参加対象</dt><dd>学生（大学・大学院・専門学校・高校）</dd></div>
       <div><dt>主催・運営</dt><dd>株式会社やるかやらんか（代表取締役 西 奈槻）</dd></div>
@@ -584,13 +584,13 @@
     <p class="sec-lead">本気で人生を変えたいお前へ。入力は簡単30秒。</p>
   </div>
   <div class="wrap wrap--narrow">
-    <div class="seat-meter" data-total="600" data-taken="552">
+    <div class="seat-meter" style="display:none">
       <div class="seat-meter__head">
-        <span class="seat-meter__label">リアルタイム残席</span>
-        <span class="seat-meter__count"><b id="seatRemainMain">48</b> / 600席</span>
+        <span class="seat-meter__label" data-seat-label>リアルタイム残席</span>
+        <span class="seat-meter__count"><b id="seatRemainMain">-</b> / <span data-site="capacity">1000</span>席</span>
       </div>
       <div class="seat-meter__bar"><span class="seat-meter__fill" style="--pct:92%"></span></div>
-      <p class="seat-meter__note">定員になり次第、自動的に受付を終了いたします。</p>
+      <p class="seat-meter__note">定員に達した場合は、受付を終了することがあります。</p>
     </div>
     <form class="entry-form" data-form="main" novalidate>
       <div class="entry-form__grid">
