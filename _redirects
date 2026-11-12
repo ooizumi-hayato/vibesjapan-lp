@@ -10,6 +10,7 @@ http://vol8.vibesjapan.com/* https://vibesjapan.com/:splat 301!
 /go/a/:x  /?ref=ad&src=:x  302
 /go/n/:x  /?ref=sns&src=:x  302
 # 共通の1本のリンク
+/go/oizumi  /?ref=oizumi  302
 /go/intern  /?ref=intern  302
 /go/otherintern  /?ref=otherintern  302
 /go/mendan  /?ref=mendan  302
