@@ -1,2 +1,16 @@
 https://vol8.vibesjapan.com/* https://vibesjapan.com/:splat 301!
 http://vol8.vibesjapan.com/* https://vibesjapan.com/:splat 301!
+
+# ---- 告知用の短縮リンク（集客の計測）。リンクを開くと、チャネルの目印つきで、トップページに移る ----
+# 規則で作るリンク：コードを足すだけで、新しいリンクが使える（コードは半角英数字・ - _ のみ）
+/go/d/:g  /?ref=dantai&src=:g  302
+/go/s/:n  /?ref=staff&src=:n  302
+/go/f/:c  /?ref=friend&src=:c  302
+/go/o/:x  /?ref=oizumi&src=:x  302
+/go/a/:x  /?ref=ad&src=:x  302
+/go/n/:x  /?ref=sns&src=:x  302
+# 共通の1本のリンク
+/go/intern  /?ref=intern  302
+/go/otherintern  /?ref=otherintern  302
+/go/mendan  /?ref=mendan  302
+/go/seijin  /?ref=seijin  302
