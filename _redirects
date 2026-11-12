@@ -9,6 +9,7 @@ http://vol8.vibesjapan.com/* https://vibesjapan.com/:splat 301!
 /go/i/:x  /?ref=intern&src=:x  302
 /go/c/:x  /?ref=otherintern&src=:x  302
 /go/m/:x  /?ref=mendan&src=:x  302
+/go/h/:x  /?ref=corp&src=:x  302
 /go/o/:x  /?ref=oizumi&src=:x  302
 /go/a/:x  /?ref=ad&src=:x  302
 /go/n/:x  /?ref=sns&src=:x  302
