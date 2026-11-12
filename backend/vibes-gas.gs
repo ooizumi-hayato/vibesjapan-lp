@@ -20,7 +20,7 @@ var CONFIG = {
   EVENT_DATE: '2027年2月13日（土）',
   EVENT_PLACE: 'なんばHatch（大阪市浪速区湊町1-3-1）',
   CC_TO_ORGANIZER: '',            // 申込通知を運営にも送る場合はメールアドレス（不要なら空）
-  CHECKIN_KEY: 'CHANGE-ME-1234'   // ← 受付チェックイン画面の合言葉（推測されにくい文字列に変更）
+  CHECKIN_KEY: ''                 // ← 受付チェックイン画面の合言葉。推測されにくい文字列を入れる（空のままだと、受付は全部ロックされて使えない）
 };
 
 /* ============ POST受信（LPからの申込） ============ */
@@ -30,7 +30,7 @@ function doPost(e) {
 
     // ── 受付チェックインAPI（外部の受付ページ checkin-web.html から呼び出し） ──
     if (data.action) {
-      if (data.key !== CONFIG.CHECKIN_KEY) return json({ ok: false, error: '合言葉が違います' });
+      if (!keyOk_(data.key)) return json({ ok: false, error: '合言葉が違います' });
       if (data.action === 'lookup') return json(lookupSerial(data.serial));
       if (data.action === 'mark')   return json(markEntered(data.serial));
       if (data.action === 'stats')  return json(getStats());
@@ -46,6 +46,7 @@ function doPost(e) {
     }
 
     var sheet = getSheet_();
+    ensureHeaders_(sheet);
     var serial = makeSerial_(sheet);
     var purpose = Array.isArray(data.purpose) ? data.purpose.join(' / ') : (data.purpose || '');
     var schoolFull = [data.university, data.faculty, data.department, data.grade].filter(function (x) { return x; }).join(' ');
@@ -65,7 +66,10 @@ function doPost(e) {
       data.tel,                  // 電話
       purpose,                   // 参加目的
       data.formType || '',       // フォーム種別 (quick/main)
-      '未入場'                    // 当日ステータス
+      '未入場',                   // 当日ステータス
+      '',                        // 入場時刻（受付で記録される）
+      cleanRef_(data.ref),       // チャネル（?ref=）
+      cleanRef_(data.src)        // 流入元（&src=。団体名・紹介者など）
     ]);
 
     // 電話番号の先頭0が消えないよう、電話列(10列目)を文字列として書き直す
@@ -103,7 +107,7 @@ function doGet(e) {
   var page = e && e.parameter ? e.parameter.page : '';
   if (page === 'checkin') {
     // 合言葉チェック
-    if (!e.parameter.key || e.parameter.key !== CONFIG.CHECKIN_KEY) {
+    if (!keyOk_(e.parameter.key)) {
       return HtmlService.createHtmlOutput('<h2 style="font-family:sans-serif">アクセスできません（合言葉が違います）</h2>');
     }
     return HtmlService.createHtmlOutputFromFile('checkin')
@@ -165,6 +169,26 @@ function getStats() {
 }
 
 /* ============ ヘルパー ============ */
+
+// 合言葉の照合。未設定（空）や、初期値のままのときは、全部ロックする
+function keyOk_(key) {
+  var k = CONFIG.CHECKIN_KEY;
+  return !!k && k !== 'CHANGE-ME-1234' && key === k;
+}
+
+// チャネル・流入元の文字列を整える（英数字・かな・漢字・_ - のみ、40文字まで）
+function cleanRef_(v) {
+  return String(v || '').replace(/[^0-9A-Za-z_\-぀-ヿ一-鿿]/g, '').slice(0, 40);
+}
+
+// 見出し行（14〜16列目）を用意する。すでにあれば何もしない
+function ensureHeaders_(sheet) {
+  var heads = ['入場時刻', 'チャネル', '流入元'];
+  for (var i = 0; i < heads.length; i++) {
+    var cell = sheet.getRange(1, 14 + i);
+    if (cell.getValue() === '') cell.setValue(heads[i]);
+  }
+}
 
 // シート取得（無ければ作成＆ヘッダー付与）
 function getSheet_() {

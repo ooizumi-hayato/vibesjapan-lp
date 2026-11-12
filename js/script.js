@@ -172,6 +172,28 @@
   /* =========================================================
      送信
      ========================================================= */
+  /* ★ 集客の計測：URLの ?ref=（チャネル）と &src=（団体名・紹介者など）を記憶して、申込と一緒に送る
+     - 例：https://vibesjapan.com/?ref=dantai&src=baobab
+     - 30日間、その端末で覚える（あとから直接開いて申し込んでも、元のチャネルが残る）
+     - 後から別のリンクで来た場合は、新しいほうで上書きする */
+  var REF_KEY = 'vj8_ref', REF_DAYS = 30;
+  function cleanRef(v) { return String(v || '').replace(/[^0-9A-Za-z_\-぀-ヿ一-鿿]/g, '').slice(0, 40); }
+  function captureRef() {
+    try {
+      var p = new URLSearchParams(location.search);
+      var ref = cleanRef(p.get('ref') || p.get('utm_source')), src = cleanRef(p.get('src') || p.get('utm_campaign'));
+      if (ref || src) localStorage.setItem(REF_KEY, JSON.stringify({ ref: ref, src: src, t: Date.now() }));
+    } catch (e) {}
+  }
+  function getRef() {
+    try {
+      var o = JSON.parse(localStorage.getItem(REF_KEY) || 'null');
+      if (o && Date.now() - o.t < REF_DAYS * 86400000) return { ref: o.ref || '', src: o.src || '' };
+    } catch (e) {}
+    return { ref: '', src: '' };
+  }
+  captureRef();
+
   function collectData(form) {
     var d = { formType: form.getAttribute('data-form'), name:'', kana:'', university:'', faculty:'', department:'', grade:'', email:'', tel:'', purpose:[], submittedAt:new Date().toISOString() };
     $all('input[name]', form).forEach(function (i) {
@@ -179,6 +201,7 @@
       else if (i.name && i.name !== 'agree') { d[i.name] = i.value.trim(); }
     });
     $all('select[name]', form).forEach(function (s) { d[s.name] = s.value; });
+    var r = getRef(); d.ref = r.ref; d.src = r.src;
     return d;
   }
   function submitToBackend(d) {
