@@ -107,7 +107,7 @@
   function authFail() { localStorage.removeItem('vj8_ckey'); KEY = ''; alert('合言葉が違います。もう一度入力してください。'); needKey(); }
 
   $('keySave').addEventListener('click', function () {
-    var v = $('keyInput').value.trim();
+    var v = $('keyInput').value.normalize('NFKC').trim(); // 全角の英数字・ハイフンは半角にそろえる
     if (!v) return;
     KEY = v; localStorage.setItem('vj8_ckey', v); initApp();
   });

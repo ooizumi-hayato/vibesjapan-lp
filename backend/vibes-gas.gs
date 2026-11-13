@@ -45,6 +45,10 @@ function doPost(e) {
       }
     }
 
+    // 入力の形チェック（ボット・いたずら対策）。LPのフォームを通らない直接送信も、ここで止める
+    var bad = invalidInput_(data);
+    if (bad) return json({ ok: false, error: bad });
+
     var sheet = getSheet_();
     ensureHeaders_(sheet);
     var serial = makeSerial_(sheet);
@@ -174,6 +178,18 @@ function getStats() {
 function keyOk_(key) {
   var k = CONFIG.CHECKIN_KEY;
   return !!k && k !== 'CHANGE-ME-1234' && key === k;
+}
+
+// 申込内容の形チェック。問題があれば理由の文字列、問題なければ空文字を返す
+function invalidInput_(d) {
+  var kana = String(d.kana).replace(/[s　・]/g, '');
+  if (!/^[ァ-ヶーぁ-んヴ]+$/.test(kana)) return 'フリガナは全角のカタカナ・ひらがなで入力してください';
+  var tel = String(d.tel).replace(/[s-－ー‐()（）+]/g, '');
+  if (!/^0d{9,10}$/.test(tel)) return '電話番号の形式が正しくありません';
+  if (!/^[^s@]+@[^s@]+.[^s@]+$/.test(String(d.email).trim())) return 'メールアドレスの形式が正しくありません';
+  var long = [d.name, d.kana, d.university, d.faculty, d.department, d.grade, d.email, d.tel].some(function (x) { return String(x).length > 60; });
+  if (long) return '入力が長すぎる項目があります';
+  return '';
 }
 
 // チャネル・流入元の文字列を整える（英数字・かな・漢字・_ - のみ、40文字まで）
