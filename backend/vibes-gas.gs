@@ -108,6 +108,9 @@ function doGet(e) {
   if (e && e.parameter && e.parameter.action === 'count') {
     return json({ ok: true, count: Math.max(0, getSheet_().getLastRow() - 1) });
   }
+  // 集計（個人情報は返さない）：日別・チャネル別・流入元別の件数。日次レポート用
+  if (e && e.parameter && e.parameter.action === 'summary') return json(summary_());
+
   var page = e && e.parameter ? e.parameter.page : '';
   if (page === 'checkin') {
     // 合言葉チェック
@@ -190,6 +193,24 @@ function invalidInput_(d) {
   var long = [d.name, d.kana, d.university, d.faculty, d.department, d.grade, d.email, d.tel].some(function (x) { return String(x).length > 60; });
   if (long) return '入力が長すぎる項目があります';
   return '';
+}
+
+// 集計（氏名・メール・電話などは返さない）
+function summary_() {
+  var sheet = getSheet_();
+  var last = sheet.getLastRow();
+  var out = { ok: true, total: Math.max(0, last - 1), entered: 0, byDate: {}, byChannel: {}, bySrc: {} };
+  if (last < 2) return out;
+  var vals = sheet.getRange(2, 1, last - 1, 16).getValues();
+  vals.forEach(function (r) {
+    var d = r[0] instanceof Date ? Utilities.formatDate(r[0], 'Asia/Tokyo', 'yyyy-MM-dd') : String(r[0]).slice(0, 10).split('/').join('-');
+    out.byDate[d] = (out.byDate[d] || 0) + 1;
+    var ch = r[14] || '（なし）';
+    out.byChannel[ch] = (out.byChannel[ch] || 0) + 1;
+    if (r[15]) { var k = (r[14] || '') + '/' + r[15]; out.bySrc[k] = (out.bySrc[k] || 0) + 1; }
+    if (r[12] === '入場済') out.entered++;
+  });
+  return out;
 }
 
 // チャネル・流入元の文字列を整える（英数字・かな・漢字・_ - のみ、40文字まで）
