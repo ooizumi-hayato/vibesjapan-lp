@@ -178,19 +178,58 @@
      - 後から別のリンクで来た場合は、新しいほうで上書きする */
   var REF_KEY = 'vj8_ref', REF_DAYS = 30;
   function cleanRef(v) { return String(v || '').replace(/[^0-9A-Za-z_\-぀-ヿ一-鿿]/g, '').slice(0, 40); }
-  function captureRef() {
+  /* 計測の印は、複数の場所に保存する（localStorage・Cookie・sessionStorage・window.name）。
+     LINE・Instagramなどのアプリ内ブラウザで、どれかが使えなくても残るようにする。
+     さらに、印がURLに無いときは、URLにも付け直す。アプリ内ブラウザの「外部のブラウザで開く」は
+     いまのURLを開くので、その先でも、印が引き継がれる */
+  function readRefFromUrl() {
     try {
       var p = new URLSearchParams(location.search);
       var ref = cleanRef(p.get('ref') || p.get('utm_source')), src = cleanRef(p.get('src') || p.get('utm_campaign'));
-      if (ref || src) localStorage.setItem(REF_KEY, JSON.stringify({ ref: ref, src: src, t: Date.now() }));
+      if (ref || src) return { ref: ref, src: src, t: Date.now() };
+    } catch (e) {}
+    return null;
+  }
+  function saveRef(o) {
+    var json = JSON.stringify(o);
+    try { localStorage.setItem(REF_KEY, json); } catch (e) {}
+    try { sessionStorage.setItem(REF_KEY, json); } catch (e) {}
+    try { document.cookie = REF_KEY + '=' + encodeURIComponent(json) + '; max-age=' + (REF_DAYS * 86400) + '; path=/; SameSite=Lax'; } catch (e) {}
+    try { if (!window.name || window.name.indexOf('vj8ref:') === 0) window.name = 'vj8ref:' + json; } catch (e) {}
+  }
+  function loadRef() {
+    var cands = [];
+    try { cands.push(localStorage.getItem(REF_KEY)); } catch (e) {}
+    try { var m = document.cookie.match(new RegExp('(?:^|; )' + REF_KEY + '=([^;]*)')); if (m) cands.push(decodeURIComponent(m[1])); } catch (e) {}
+    try { cands.push(sessionStorage.getItem(REF_KEY)); } catch (e) {}
+    try { if (window.name && window.name.indexOf('vj8ref:') === 0) cands.push(window.name.slice(7)); } catch (e) {}
+    for (var i = 0; i < cands.length; i++) {
+      try {
+        var o = JSON.parse(cands[i] || 'null');
+        if (o && (o.ref || o.src) && Date.now() - o.t < REF_DAYS * 86400000) return o;
+      } catch (e) {}
+    }
+    return null;
+  }
+  function captureRef() {
+    try {
+      var u = readRefFromUrl();
+      if (u) { saveRef(u); return; }
+      var o = loadRef();
+      if (o) {
+        saveRef(o); // 取れた場所から、ほかの場所へも保存し直す
+        if (history.replaceState) {
+          var p = new URLSearchParams(location.search);
+          if (o.ref) p.set('ref', o.ref);
+          if (o.src) p.set('src', o.src);
+          history.replaceState(null, '', location.pathname + '?' + p.toString() + location.hash);
+        }
+      }
     } catch (e) {}
   }
   function getRef() {
-    try {
-      var o = JSON.parse(localStorage.getItem(REF_KEY) || 'null');
-      if (o && Date.now() - o.t < REF_DAYS * 86400000) return { ref: o.ref || '', src: o.src || '' };
-    } catch (e) {}
-    return { ref: '', src: '' };
+    var o = readRefFromUrl() || loadRef();
+    return o ? { ref: o.ref || '', src: o.src || '' } : { ref: '', src: '' };
   }
   captureRef();
 
